@@ -11,6 +11,8 @@
         <p>{{ result }}</p>
         {% if next_num %}
         <a href="/question/{{ next_num }}"><button>Next Question</button></a>
+        {% else %}
+        <a href="/results"><button>See Results</button></a>
         {% endif %}
     {% else %}
         {% for option in question.answers %}
