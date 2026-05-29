@@ -5,7 +5,17 @@
     <title>AstroTest — Question</title>
 </head>
 <body>
-    <h1>Question 1</h1>
-    <p>Question goes here.</p>
+    <h1>Question {{ num }}</h1>
+    <p>{{ question.text }}</p>
+    {% if result %}
+        <p>{{ result }}</p>
+        {% if next_num %}
+        <a href="/question/{{ next_num }}"><button>Next Question</button></a>
+        {% endif %}
+    {% else %}
+        {% for option in question.answers %}
+        <a href="/answer?num={{ num }}&answer={{ option }}"><button>{{ option }}</button></a>
+        {% endfor %}
+    {% endif %}
 </body>
 </html>
